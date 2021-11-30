@@ -23,5 +23,37 @@ const TranslateBox = styled.div`
 interface IHome {}
 
 const Home: FC<IHome> = () => {
-    
+  const router = useRouter();
+  const [input, setInput] = useState<string>("");
+  const [output, setOutput] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>();
+  const [selectInput, setSelectInput] = useState<ILanguage>();
+  const [selectOutput, setSelectOutput] = useState<ILanguage>();
+
+  const timer = useRef<any>(null);
+
+  useEffect(() => {
+    let url = new URL(location.origin + router.asPath);
+    let text = url.searchParams.get("text");
+
+    setInput(text || "Hello world! Who I am.");
+  }, []);
+  
+  useEffect(() => {
+    let url = new URL(location.origin + router.asPath);
+    let query: any = handleInitQuery(url);
+    console.log(query);
+
+    if (input?.trim() !== "") {
+      query.text = input;
+    }
+
+    if (selectInput && selectOutput) {
+      handleCallApi();
+
+      router.replace({
+        query: query,
+      });
+    }
+  }, [input]);
 };
