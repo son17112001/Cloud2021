@@ -56,4 +56,18 @@ const Home: FC<IHome> = () => {
       });
     }
   }, [input]);
+
+  useEffect(() => {
+    if (input) return;
+    clearTimeout(timer.current);
+    setOutput("");
+  }, [input]);
+
+  useEffect(() => {
+    handleCallApi();
+  }, [selectInput]);
+
+  useEffect(() => {
+    handleCallApi();
+  },
 };
