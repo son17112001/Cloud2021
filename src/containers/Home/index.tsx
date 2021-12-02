@@ -70,4 +70,14 @@ const Home: FC<IHome> = () => {
   useEffect(() => {
     handleCallApi();
   },
+
+  const handleInitQuery = (url: URL) => {
+    let from = url.searchParams.get("from");
+    let to = url.searchParams.get("to");
+
+    return {
+      from: selectInput?.LanguageCode || from,
+      to: selectOutput?.LanguageCode || to,
+    };
+  };
 };
