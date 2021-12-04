@@ -80,4 +80,38 @@ const Home: FC<IHome> = () => {
       to: selectOutput?.LanguageCode || to,
     };
   };
+
+  const handleCallApi = () => {
+    if (input.trim() === "") return;
+    clearTimeout(timer.current);
+    timer.current = setTimeout(() => {
+      setLoading(true);
+
+      let payload: ITranslateTextPayload = {
+        Text: input,
+        SourceLanguageCode: selectInput?.LanguageCode || "auto",
+        TargetLanguageCode: selectOutput?.LanguageCode || "vi",
+      };
+
+      handleTranslateApi(payload);
+    }, 300);
+  };
+
+  const handleChangeOutput = (data: string) => {
+    if (input !== "") {
+      setOutput(data);
+    }
+  };
+
+  const handleTranslateApi = (payload: ITranslateTextPayload) => {
+    AWSTranslate.doTranslate(payload, (err, data) => {
+      handleChangeOutput(data.TranslatedText);
+
+      setLoading(false);
+    });
+  };
+  
+  const handleChangeInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value);
+  };
 };
