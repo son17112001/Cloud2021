@@ -114,4 +114,32 @@ const Home: FC<IHome> = () => {
   const handleChangeInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
   };
+  return (
+    <HomeContainer>
+      <Header />
+      <ChangeLanguage
+        getSelectInput={setSelectInput}
+        getSelectOutput={setSelectOutput}
+      />
+      <HomeBox>
+        <TranslateBox>
+          <Input
+            value={input}
+            onChange={handleChangeInput}
+            volIcon
+            placeholder="Vui lòng nhập văn bản vào đây ..."
+          />
+          <Input
+            loading={loading}
+            value={output}
+            eventPoiter={true}
+            volIcon
+            placeholder=""
+          />
+        </TranslateBox>
+      </HomeBox>
+    </HomeContainer>
+  );
 };
+
+export default Home;
