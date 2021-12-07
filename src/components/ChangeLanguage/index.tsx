@@ -248,7 +248,41 @@ const ChangeLanguage: FC<IChangeLanguage> = ({
   return (
     <ChangeLanguageContainer>
       <ChangeLanguageBox>
-      
+        <LanguageBox>
+          <LanguageName onClick={setIsActiveInput}>
+            {selectInput?.Language}
+          </LanguageName>
+          {isActiveInput && (
+            <LanguageList ref={refInput}>
+              {languge.map((value) => (
+                <LanguageItem
+                  key={value.LanguageCode}
+                  onClick={() => handleChangeInput(value)}
+                >
+                  {value.Language}
+                </LanguageItem>
+              ))}
+            </LanguageList>
+          )}
+        </LanguageBox>
+
+        <LanguageBox>
+          <LanguageName onClick={setIsActiveOutput}>
+            {selectOutput?.Language}
+          </LanguageName>
+          {isActiveOutput && (
+            <LanguageList ref={refOutput}>
+              {languge.map((value) => (
+                <LanguageItem
+                  key={value.LanguageCode}
+                  onClick={() => handleChangeOutput(value)}
+                >
+                  {value.Language}
+                </LanguageItem>
+              ))}
+            </LanguageList>
+          )}
+        </LanguageBox>
       </ChangeLanguageBox>
       <IconBox onClick={handleConvert}>
         <Translate size="28" color="#1db964" />
