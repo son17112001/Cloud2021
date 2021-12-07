@@ -38,7 +38,7 @@ const Home: FC<IHome> = () => {
 
     setInput(text || "Hello world! Who I am.");
   }, []);
-  
+
   useEffect(() => {
     let url = new URL(location.origin + router.asPath);
     let query: any = handleInitQuery(url);
@@ -69,7 +69,7 @@ const Home: FC<IHome> = () => {
 
   useEffect(() => {
     handleCallApi();
-  },
+  }, [selectOutput]);
 
   const handleInitQuery = (url: URL) => {
     let from = url.searchParams.get("from");
@@ -110,10 +110,11 @@ const Home: FC<IHome> = () => {
       setLoading(false);
     });
   };
-  
+
   const handleChangeInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
   };
+
   return (
     <HomeContainer>
       <Header />
