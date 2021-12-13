@@ -6,7 +6,8 @@ import AWSTranslate from "@services/AWS";
 import { ITranslateTextPayload } from "@services/AWS/interface";
 import { useRouter } from "next/dist/client/router";
 import { ChangeEvent, FC, useEffect, useRef, useState } from "react";
-import tw, { styled } from "twin.macro";
+import styled from "styled-components";
+import tw from "twin.macro";
 
 const HomeContainer = styled.div`
   ${tw`mb-20`}
@@ -22,7 +23,7 @@ const TranslateBox = styled.div`
 
 interface IHome {}
 
-const Home: FC<IHome> = () => {
+const HomePage: FC<IHome> = () => {
   const router = useRouter();
   const [input, setInput] = useState<string>("");
   const [output, setOutput] = useState<string>("");
@@ -103,12 +104,12 @@ const Home: FC<IHome> = () => {
     }
   };
 
-  const handleTranslateApi = (payload: ITranslateTextPayload) => {
-    AWSTranslate.doTranslate(payload, (err, data) => {
-      handleChangeOutput(data.TranslatedText);
+  const handleTranslateApi = async (payload: ITranslateTextPayload) => {
+    let data = await AWSTranslate.doTranslate(payload);
 
-      setLoading(false);
-    });
+    handleChangeOutput(data.TranslatedText);
+
+    setLoading(false);
   };
 
   const handleChangeInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
@@ -143,4 +144,4 @@ const Home: FC<IHome> = () => {
   );
 };
 
-export default Home;
+export default HomePage;

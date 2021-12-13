@@ -1,7 +1,8 @@
 import { ChangeEvent, FC, MutableRefObject, RefObject } from "react";
-import Loading from "@components/Input/components/Loading";
-import tw, { styled } from "twin.macro";
+import Loading from "@design/Loading";
+import tw from "twin.macro";
 import Control from "./components/Control";
+import styled from "styled-components";
 
 const InputContainer = styled.div`
   ${tw`min-h-[360px] border shadow-lg rounded-xl overflow-hidden`}

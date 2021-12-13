@@ -1,15 +1,16 @@
 import type { NextPage } from "next";
 import { Fragment } from "react";
-import HomePage from "@containers/Home";
-import MetaTitle from "@design/MetaTitle";
 
-const Home: NextPage = () => {
+import MetaTitle from "@design/MetaTitle";
+import LinkPage from "@containers/Link";
+
+const Link: NextPage = () => {
   return (
     <Fragment>
       <MetaTitle title="UTE Translate" />
-      <HomePage />
+      <LinkPage />
     </Fragment>
   );
 };
 
-export default Home;
+export default Link;

@@ -1,6 +1,7 @@
 import { Microphone2, VolumeHigh } from "iconsax-react";
 import { FC } from "react";
-import tw, { styled } from "twin.macro";
+import styled from "styled-components";
+import tw from "twin.macro";
 
 const ControlContainer = styled.div`
   ${tw`w-full h-16`}
