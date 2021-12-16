@@ -101,16 +101,13 @@ const ChangeLanguage: FC<IChangeLanguage> = ({
     }
 
     if (queryParams) {
-      console.log(queryParams);
-
+     
       let inputSelect = handleSetDefault(queryParams?.from!, "en")!;
       let outputSelect = handleSetDefault(queryParams?.to!, "vi")!;
       handleChangeInput(inputSelect);
       handleChangeOutput(outputSelect);
       return;
     }
-
-    console.log(from[0], " ", to[0]);
 
     let inputSelect = handleSetDefault(from[0], "en")!;
     let outputSelect = handleSetDefault(to[0], "vi")!;
@@ -123,8 +120,7 @@ const ChangeLanguage: FC<IChangeLanguage> = ({
     let text = url.searchParams.get("text");
 
     let query: any = handleInitQuery(url);
-    console.log(query);
-
+  
     if (text && text?.trim() !== "") {
       query.text = text;
     }
@@ -141,8 +137,7 @@ const ChangeLanguage: FC<IChangeLanguage> = ({
     let text = url.searchParams.get("text");
 
     let query: any = handleInitQuery(url);
-    console.log(query);
-
+   
     if (text && text?.trim() !== "") {
       query.text = text;
     }

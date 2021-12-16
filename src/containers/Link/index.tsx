@@ -92,6 +92,7 @@ const LinkPage: FC<ILinkPage> = () => {
 
       let doc = new DOMParser().parseFromString(data, "text/html");
 
+      
       let child = document.createElement("div");
       child.innerHTML = `
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -127,7 +128,7 @@ const LinkPage: FC<ILinkPage> = () => {
       setHtml(new XMLSerializer().serializeToString(doc));
     } catch (error: any) {
       setLoading(false);
-      console.log(error.massage);
+  
     }
   };
 
@@ -145,7 +146,7 @@ const LinkPage: FC<ILinkPage> = () => {
     doc.open();
     doc.write(html);
     doc.close();
-    console.log(frame.contentDocument);
+
 
     frame.style.width = "100%";
   };

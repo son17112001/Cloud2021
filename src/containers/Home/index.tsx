@@ -43,8 +43,7 @@ const HomePage: FC<IHome> = () => {
   useEffect(() => {
     let url = new URL(location.origin + router.asPath);
     let query: any = handleInitQuery(url);
-    console.log(query);
-
+  
     if (input?.trim() !== "") {
       query.text = input;
     }

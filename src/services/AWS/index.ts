@@ -1,13 +1,16 @@
 import AWS from "aws-sdk";
 import { ITranslateTextPayload } from "./interface";
 
-AWS.config.region = "us-east-1";
-AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-  IdentityPoolId: "us-east-1:e8ecc73b-676d-46f8-89ba-e957866f07e6",
-});
+const awsCof = {
+  region: "us-east-1",
+  credentials: {
+    accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID as string,
+    secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY as string,
+  },
+};
 
 const AWSTranslate = (function () {
-  const translate = new AWS.Translate({ region: AWS.config.region });
+  const translate = new AWS.Translate(awsCof);
   const polly = new AWS.Polly();
 
   const doTranslate = (payload: ITranslateTextPayload) => {

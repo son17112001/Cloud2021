@@ -2179,6 +2179,11 @@ domain-browser@4.19.0:
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-4.19.0.tgz#1093e17c0a17dbd521182fe90d49ac1370054af1"
   integrity sha512-fRA+BaAWOR/yr/t7T9E9GJztHPeFjj8U35ajyAjCDtAAnTn1Rc1f6W6VGPJrO1tkQv9zWu+JRof7z6oQtiYVFQ==
 
+dotenv@^8.0.0:
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.6.0.tgz#061af664d19f7f4d8fc6e4ff9b584ce237adcb8b"
+  integrity sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==
+
 dset@^2.0.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/dset/-/dset-2.1.0.tgz#cd1e99e55cf32366d8f144f906c42f7fb3bf431e"
@@ -3421,6 +3426,13 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
+
+next-runtime-dotenv@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/next-runtime-dotenv/-/next-runtime-dotenv-1.4.0.tgz#636bb7ad547a37ec3729c9febc2c8f8aa3f9e9cd"
+  integrity sha512-niFj3TvDhOS6LDVMTDMx+dzV+aktFYN+G4TNToNe0POhONCZNqnvaqXlin6rwZuCBzfd3Jl2Dhf0D7nIR2HGOA==
+  dependencies:
+    dotenv "^8.0.0"
 
 next@12.0.7:
   version "12.0.7"
